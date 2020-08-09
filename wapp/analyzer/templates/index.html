@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RECONATOR | WA ANALYTICS | TEAM HACK ELITE</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./static/css/bootstrap.min.css">
+    <script type="text/javascript" src="./static/libs/js/jquery.min.js"></script>
+    <script type="text/javascript" src="./static/libs/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./static/libs/js/jquery.validate.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="navbar-header">
+        <span class="title">RECONATOR | WA ANALYTICS | TEAM HACK ELITE</span>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div id="wrap">
+        <h2>How to export your Conversation:</h2>
+        To export a copy of the history of an individual chat or group, use the Email chat feature:
+        <ul>
+          <li>Open the conversation or group.</li>
+          <li>Click on more button (three vertial dots) on top right corner and select <B>More</B>.</li>
+          <li>Select <B>Email chat</B>.</li>
+          <li>Choose <B>Without Media.</B></li>
+          <li>An email will be composed with your chat history attached as a .txt document.</li>
+          <li>Now send it to yourself or save it in drafts. Then download the .txt file and upload it below.</li>
+          <li>Before Uploading open the file and check the date format, whether Day comes first or the Month and Select an option below. </li>
+        </ul>
+        <h4>Upload file here:</h4>
+        <form  id="upload-form" action="" method=post enctype=multipart/form-data>
+          <select name="d_down" id="d_down">  
+            <option value="">Select Date Format.</option>
+            <option value="Date First">Date First</option>
+            <option value="Month First">Month First</option>
+          </select>
+          <input type=file name=file>
+          <input type=submit value=Upload>
+        </form>
+      </div>
+    <img id="loader" src="./static/images/712.gif"/>
+    </div>
+    <div id="footer">
+      <p>TEAM HACK ELITE || WA ANALYTICS</p>
+    </div>
+  </body>
+</html>
+<script type="text/javascript">
+  $(function() {
+  // Validation on the #upload-form element
+  $("#upload-form").validate({
+    rules: {
+      d_down: "required",
+      file: "required"
+    },
+    // Specify the validation error messages
+    messages: {
+      d_down: "Please select your date format",
+      file: "Please Select a file to upload"
+    }
+  });
+});
+$('form').submit( function(e) {
+  if($(this).valid()) {
+    $("#wrap,#footer").fadeTo("slow", 0.15);
+    $("#loader").css("display", "block");
+  }
+});
+</script>
